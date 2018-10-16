@@ -1,0 +1,22 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: evshang-registration
+  profiles:
+    active: dev
+
+# 标识该服务为注册中心
+eureka:
+  instance:
+    hostname: evshang-registration.com
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  # 关闭eureka自我保护机制
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 4000 # 清理间隔（单位毫秒，默认是60*1000）
+

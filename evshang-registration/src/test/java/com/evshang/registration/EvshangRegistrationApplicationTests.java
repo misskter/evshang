@@ -1,4 +1,4 @@
-package com.evshang.evshangregistration;
+package com.evshang.registration;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
