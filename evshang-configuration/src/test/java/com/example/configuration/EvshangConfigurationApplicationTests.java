@@ -1,4 +1,4 @@
-package com.example.evshangconfiguration;
+package com.example.configuration;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

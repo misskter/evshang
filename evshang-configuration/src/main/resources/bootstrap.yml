@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: evshang-configuration-server
+  profiles:
+    active: dev
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri:
+
+
