@@ -36,7 +36,8 @@
   <module>evshang-authentication</module>
   <module>evshang-configuration</module>
   <module>evshang-gateway</module>
-
+  <module>evshang-user-service</module>
+  <module>evshang-common</module>
 </modules>
 
 </project>
