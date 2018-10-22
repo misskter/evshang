@@ -1,0 +1,19 @@
+server:
+  port: 1234
+spring:
+  application:
+    name: evshang-configuration-server
+  profiles:
+    active: dev
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/misskter/spring-cloud-project-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka
+
+

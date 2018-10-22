@@ -24,13 +24,10 @@ public class User implements Serializable {
     private Date birthday;
     private String phone;
     private Integer sex;
-
     private Date createTime;
     private Date updateTime;
     //表明注册是哪个平台
     private String channel;
-
-
     private Integer uroleId;
     //private Urole urole;
 
