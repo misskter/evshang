@@ -7,9 +7,8 @@
 	<artifactId>evshang-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>evshang-gateway</name>
-	<description>the application is api gateway</description>
+	<description>the application is api gateway(这是系统的网关模块)</description>
 
 	<parent>
 		<groupId>com.evshang</groupId>
@@ -31,7 +30,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
+
+	<!--	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
+-->
 	</dependencies>
+
 
 
 

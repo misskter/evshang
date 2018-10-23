@@ -4,12 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.evshang</groupId>
-    <artifactId>evshang-user-service</artifactId>
+    <artifactId>evshang-integral-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>evshang-user-service</name>
-    <description>the application is user service</description>
+    <name>evshang-integral-service</name>
+    <description>
+        //the application is integral service
+        //这个是积分服务
+    </description>
 
     <parent>
         <groupId>com.evshang</groupId>

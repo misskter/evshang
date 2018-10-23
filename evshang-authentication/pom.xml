@@ -9,7 +9,8 @@
     <packaging>jar</packaging>
 
     <name>evshang-authentication</name>
-    <description>Demo project for Spring Boot</description>
+
+    <description>this is authentication service(这个模块是认证服务)</description>
 
     <parent>
         <groupId>com.evshang</groupId>

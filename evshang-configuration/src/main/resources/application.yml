@@ -1,5 +1,5 @@
 server:
-  port: 1234
+  port: 8800
 spring:
   application:
     name: evshang-configuration-server
@@ -14,6 +14,6 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:5000/eureka
+      defaultZone: http://localhost:8000/eureka
 
 

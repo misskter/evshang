@@ -17,6 +17,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <spring-cloud.version>Edgware.SR4</spring-cloud.version>
+
+
   </properties>
 
   <dependencyManagement>
@@ -38,6 +40,9 @@
   <module>evshang-gateway</module>
   <module>evshang-user-service</module>
   <module>evshang-common</module>
+  <module>evshang-order-service</module>
+  <module>evshang-commodity-service</module>
+  <module>evshang-integral-ervice</module>
 </modules>
 
 </project>
