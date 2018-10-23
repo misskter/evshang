@@ -45,6 +45,7 @@ public class EvshangFallbackProvider implements FallbackProvider {
                 //return json data;
                 //error_code = -1;
                 //System.out.println(throwable.getMessage());
+
                 return new ByteArrayInputStream("fallback".getBytes());
             }
 

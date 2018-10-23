@@ -1,10 +1,9 @@
-package com.evshang.filter;
+package com.evshang.filter.zuul;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.zuul.filters.ProxyRequestHelper;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,9 +12,10 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 
 @Component
 public class EvshangZuulFilter extends ZuulFilter {
+
+
     @Override
     public String filterType() {
-
         return ROUTE_TYPE;
     }
 
@@ -33,9 +33,11 @@ public class EvshangZuulFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
-        String header = request.getHeader("host");
-
         HttpServletResponse servletResponse = context.getResponse();
+        String header = request.getHeader("token");
+        if(StringUtils.isNotBlank(header)){
+
+        }
         servletResponse.addHeader("X-Foo", UUID.randomUUID().toString());
         return null;
     }
