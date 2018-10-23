@@ -1,0 +1,10 @@
+server:
+  port: 8010
+
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://localhost:5000/eureka/
+spring:
+  application:
+    name: evshang-authentication
