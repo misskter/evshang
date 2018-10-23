@@ -35,7 +35,7 @@
 
 <modules>
   <module>evshang-registration</module>
-  <module>evshang-authentication</module>
+  <module>evshang-authentication-service</module>
   <module>evshang-configuration</module>
   <module>evshang-gateway</module>
   <module>evshang-user-service</module>
