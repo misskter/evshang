@@ -9,7 +9,7 @@ public class UserFeignHystrix implements UserFeign {
 
     @Override
     public User queryUserByUserName(String username) {
-       User user = new User();
+        User user = new User();
         user.setUsername(username);
         return user;
     }

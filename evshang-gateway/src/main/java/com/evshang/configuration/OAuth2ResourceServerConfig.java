@@ -46,6 +46,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
+        http.formLogin().loginProcessingUrl("/login");
         evshangAuthorizeConfigManager.config(http.authorizeRequests());
         http.authorizeRequests().anyRequest().access("@permissionService.hasPermission(request,authentication)");
     }

@@ -13,6 +13,6 @@ import java.io.IOException;
 public class EvshangOAuth2AccessDeniedHandler extends OAuth2AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException authException) throws IOException, ServletException {
-        super.handle(request, response, authException);
+        response.getOutputStream().print("aasfaa");
     }
 }

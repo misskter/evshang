@@ -16,5 +16,5 @@ feign:
     enabled: true
 security:
   exclude-urls:
-    - home/index
-    - test/asaf
+    - /home/index
+    - /test/*
