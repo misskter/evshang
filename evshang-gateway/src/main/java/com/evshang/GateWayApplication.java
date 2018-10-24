@@ -22,9 +22,4 @@ public class GateWayApplication {
 		SpringApplication.run(GateWayApplication.class, args);
 	}
 
-/*	@Bean
-	@LoadBalanced
-	RestTemplate restTemplate() {
-		return new RestTemplate();
-	}*/
 }

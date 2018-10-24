@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserFeign {
 
     @GetMapping("/userDetails/{username}")
-    User queryUserByUserName(@RequestParam(value = "name") String username);
+    User queryUserByUserName(@PathVariable("username") String username);
 
 }

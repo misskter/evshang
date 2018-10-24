@@ -1,9 +1,8 @@
-/*
-package com.evshang.service.impl;
+package com.evshang.permission.impl;
 
 import com.evshang.entity.User;
 import com.evshang.feign.UserFeign;
-import com.evshang.service.PermissionService;
+import com.evshang.permission.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +12,6 @@ import org.springframework.util.AntPathMatcher;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 @Service("permissionService")
@@ -22,12 +20,6 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Autowired
     UserFeign userFeign;
-
-
-    public PermissionServiceImpl(){
-
-
-    }
 
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -42,6 +34,7 @@ public class PermissionServiceImpl implements PermissionService {
             String username = ((UserDetails) principal).getUsername();
             //System.out.println(username);
             User user = userFeign.queryUserByUserName(username);
+            //获取用户的对应的链接 此处可以使用redis缓存用户的链接,
             Set<String> urls = new HashSet<String>();
 
             for (String url : urls) {
@@ -55,4 +48,3 @@ public class PermissionServiceImpl implements PermissionService {
     }
 }
 
-*/
