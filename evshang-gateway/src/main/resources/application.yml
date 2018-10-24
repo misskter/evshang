@@ -13,3 +13,4 @@ eureka:
 zuul:
   routes:
     api: /user/**
+

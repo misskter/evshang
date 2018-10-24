@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8880/
+      discovery:
+        enabled: true
+        service-id: evshang-configuration-server
+      profile: dev
+      label: master
+  application:
+    name: evshang-user-service
+server:
+  port: 8888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka

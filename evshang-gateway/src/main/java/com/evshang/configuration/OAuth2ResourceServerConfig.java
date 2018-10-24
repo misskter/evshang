@@ -1,3 +1,4 @@
+/*
 package com.evshang.configuration;
 
 
@@ -19,9 +20,11 @@ import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurity
 public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 
-    /**
+    */
+/**
      * 需要这样的配置解决no bean resolver registered for custom bean 500错误
-     */
+     *//*
+
     @Autowired
     private OAuth2WebSecurityExpressionHandler expressionHandler;
 
@@ -60,3 +63,4 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
 
 }
+*/
