@@ -4,7 +4,22 @@ server:
 eureka:
   client:
     serviceUrl:
-        defaultZone: http://localhost:5000/eureka/
+        defaultZone: http://localhost:8000/eureka/
 spring:
   application:
-    name: evshang-authentication
+    name: evshang-authentication-service
+  redis:
+    password: 123456
+    ssl: false
+    host: localhost
+    port: 6379
+
+
+evshang:
+  security:
+    oathu2:
+      clients[0]:
+        clientId: evshang
+        client-secret: evshangsecret
+
+

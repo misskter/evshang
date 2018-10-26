@@ -34,7 +34,7 @@ public class EvshangZuulFilter extends ZuulFilter {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
         HttpServletResponse servletResponse = context.getResponse();
-        String header = request.getHeader("token");
+        String header = request.getHeader("access-token");
         if(StringUtils.isNotBlank(header)){
 
         }

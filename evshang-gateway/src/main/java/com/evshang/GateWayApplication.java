@@ -8,7 +8,9 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @EnableZuulProxy
@@ -16,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableFeignClients
 @EnableHystrix
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class GateWayApplication {
 
 	public static void main(String[] args) {

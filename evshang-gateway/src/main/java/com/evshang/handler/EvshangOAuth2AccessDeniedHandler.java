@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/**
+ * 拒绝访问资源返回403错误
+ */
 @Component
 public class EvshangOAuth2AccessDeniedHandler extends OAuth2AccessDeniedHandler {
     @Override

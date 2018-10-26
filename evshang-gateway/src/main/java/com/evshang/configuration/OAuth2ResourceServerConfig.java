@@ -2,6 +2,8 @@ package com.evshang.configuration;
 
 
 
+import com.evshang.authentication.email.EmailCodeAuthenticationSecurityConfig;
+import com.evshang.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.evshang.authorize.AuthorizeConfigManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -30,6 +32,20 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Autowired
     private AuthorizeConfigManager evshangAuthorizeConfigManager;
 
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    @Autowired
+    private EmailCodeAuthenticationSecurityConfig emailCodeAuthenticationSecurityConfig;
+
+
+    @Autowired
+    private AuthorizeConfigManager authorizeConfigManager;
+    //@Autowired
+    //private ValidateCodeSecurityConfig validateCodeSecurityConfig;
+
+
+
+
+
     @Bean
     public OAuth2WebSecurityExpressionHandler oAuth2WebSecurityExpressionHandler(ApplicationContext applicationContext) {
         OAuth2WebSecurityExpressionHandler expressionHandler = new OAuth2WebSecurityExpressionHandler();
@@ -41,12 +57,16 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources.expressionHandler(expressionHandler);
         resources.accessDeniedHandler(evshangOAuth2AccessDeniedHandler);
+
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.formLogin().loginProcessingUrl("/login");
+        http
+                .apply(smsCodeAuthenticationSecurityConfig)
+                .and()
+                .apply(emailCodeAuthenticationSecurityConfig);
         evshangAuthorizeConfigManager.config(http.authorizeRequests());
         http.authorizeRequests().anyRequest().access("@permissionService.hasPermission(request,authentication)");
     }
