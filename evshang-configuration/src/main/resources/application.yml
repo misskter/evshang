@@ -3,14 +3,17 @@ server:
 spring:
   application:
     name: evshang-configuration-server
-  profiles:
-    active: dev
+  #这里懒得设置开发环境还是测试环境直接就是可以部署的环境（本人很懒）
+  #profiles:
+    #active: dev
   cloud:
     config:
       label: master
       server:
         git:
-          uri: https://github.com/misskter/spring-cloud-project-config
+          uri: https://github.com/misskter/evshang-config
+          search-paths: user-service
+
 eureka:
   client:
     service-url:

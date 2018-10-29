@@ -48,6 +48,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 
             super.configure(security);
+
     }
 
     @Override
@@ -71,6 +72,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userService);
+
 
         if(jwtAccessTokenConverter!=null && jwtTokenEnhance!=null) {
             TokenEnhancerChain enhancerChain=new TokenEnhancerChain();
