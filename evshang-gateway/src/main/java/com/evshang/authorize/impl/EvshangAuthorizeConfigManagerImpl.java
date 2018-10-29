@@ -5,12 +5,14 @@ import java.util.Set;
 import com.evshang.authorize.AuthorizeConfigManager;
 import com.evshang.authorize.AuthorizeConfigProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
 
 
 @Component
+@Order(Integer.MIN_VALUE)
 public class EvshangAuthorizeConfigManagerImpl implements AuthorizeConfigManager {
 
 	@Autowired
