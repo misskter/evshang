@@ -39,7 +39,6 @@
   <module>evshang-configuration</module>
   <module>evshang-gateway</module>
   <module>evshang-user-service</module>
-  <module>evshang-common</module>
   <module>evshang-order-service</module>
   <module>evshang-commodity-service</module>
   <module>evshang-integral-ervice</module>

@@ -12,10 +12,10 @@
     <description>this is authentication service(这个模块是认证服务)</description>
 
     <parent>
-        <groupId>com.evshang</groupId>
-        <artifactId>evshang</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <!-- lookup parent from repository -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.16.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>

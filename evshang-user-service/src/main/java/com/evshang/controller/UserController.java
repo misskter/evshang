@@ -18,11 +18,11 @@ public class UserController {
 
     @GetMapping("/userDetails/{username}")
     public User userDetails(@PathVariable("username") String username){
-        //User user = userService.findUserByUsername(username);
+        User user = userService.findUserByUsername(username);
 
-        User user = new User();
-        user.setUsername(UUID.randomUUID().toString());
-        user.setId(new Random().nextInt());
+        //User user = new User();
+        //user.setUsername(UUID.randomUUID().toString());
+       // user.setId(new Random().nextInt());
         return user;
     }
 
