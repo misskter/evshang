@@ -4,6 +4,7 @@ package com.evshang.configuration;
 
 
 import com.evshang.authorize.AuthorizeConfigManager;
+import com.evshang.filter.EvshangZuulFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
 import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurityExpressionHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableResourceServer
@@ -32,10 +34,12 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     private AuthorizeConfigManager evshangAuthorizeConfigManager;
 
 
-
-
     @Autowired
     private AuthorizeConfigManager authorizeConfigManager;
+    @Autowired
+    private EvshangZuulFilter evshangZuulFilter;
+
+
     //@Autowired
     //private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 

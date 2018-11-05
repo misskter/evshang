@@ -1,3 +1,4 @@
+/*
 package com.evshang.properties;
 
 import com.google.common.collect.Lists;
@@ -15,8 +16,11 @@ import java.util.List;
 @Component
 public class SecurityProperties {
 
-    /**
+    */
+/**
      * 需要排除的url,后续从配置中心获取
-     */
+     *//*
+
     private List<String> excludeUrls = Lists.newArrayList();
 }
+*/
