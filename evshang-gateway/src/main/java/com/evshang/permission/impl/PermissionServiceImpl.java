@@ -26,6 +26,7 @@ public class PermissionServiceImpl implements PermissionService {
     private HashMap<String,Set<String>> urlMap = new HashMap<>();
 
 
+
     @Override
     public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
         Object principal = authentication.getPrincipal();

@@ -16,11 +16,15 @@ feign:
     enabled: true
 
 
+
 security:
   oauth2:
     client:
       client-id: evshang
       client-secret: evshangsecret
+    resource:
+      token-info-uri: http://baidu.com
+
 
 
 zuul:

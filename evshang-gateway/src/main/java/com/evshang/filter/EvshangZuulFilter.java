@@ -16,12 +16,12 @@ public class EvshangZuulFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return ROUTE_TYPE;
+        return PRE_TYPE;
     }
 
     @Override
     public int filterOrder() {
-        return SIMPLE_HOST_ROUTING_FILTER_ORDER - 1;
+        return SEND_ERROR_FILTER_ORDER;
     }
 
     @Override
