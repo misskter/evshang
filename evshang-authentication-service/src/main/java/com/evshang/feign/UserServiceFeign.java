@@ -12,4 +12,7 @@ public interface UserServiceFeign {
 
     @GetMapping("/userDetails/{username}")
     User findByUsername(@PathVariable("username") String username);
+
+
+
 }

@@ -42,8 +42,4 @@ zuul:
       strip-prefix: true
       sensitiveHeaders:
       serviceId: evshang-authentication-service
-proxy:
-  auth:
-    routes:
-      custom: oauth2
 

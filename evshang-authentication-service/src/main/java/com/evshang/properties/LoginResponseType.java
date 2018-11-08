@@ -7,6 +7,7 @@ package com.evshang.properties;
  * @author zhailiang
  *
  */
+
 public enum LoginResponseType {
 	
 	/**

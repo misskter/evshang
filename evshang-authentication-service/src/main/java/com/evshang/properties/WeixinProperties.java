@@ -3,12 +3,14 @@
  */
 package com.evshang.properties;
 
+import lombok.Data;
 import org.springframework.boot.autoconfigure.social.SocialProperties;
 
 /**
  * @author zhailiang
  *
  */
+@Data
 public class WeixinProperties extends SocialProperties {
 	
 	/**
@@ -16,19 +18,7 @@ public class WeixinProperties extends SocialProperties {
 	 */
 	private String providerId = "weixin";
 
-	/**
-	 * @return the providerId
-	 */
-	public String getProviderId() {
-		return providerId;
-	}
 
-	/**
-	 * @param providerId the providerId to set
-	 */
-	public void setProviderId(String providerId) {
-		this.providerId = providerId;
-	}
 	
 
 }
