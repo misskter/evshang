@@ -39,14 +39,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Autowired
     private EvshangZuulFilter evshangZuulFilter;
 
-
-    //@Autowired
-    //private ValidateCodeSecurityConfig validateCodeSecurityConfig;
-
-
-
-
-
     @Bean
     public OAuth2WebSecurityExpressionHandler oAuth2WebSecurityExpressionHandler(ApplicationContext applicationContext) {
         OAuth2WebSecurityExpressionHandler expressionHandler = new OAuth2WebSecurityExpressionHandler();

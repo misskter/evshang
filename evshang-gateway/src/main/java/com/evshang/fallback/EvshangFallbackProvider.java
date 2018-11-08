@@ -1,5 +1,7 @@
 package com.evshang.fallback;
 
+import com.evshang.response.FallbackResponse;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -45,8 +47,11 @@ public class EvshangFallbackProvider implements FallbackProvider {
                 //return json data;
                 //error_code = -1;
                 //System.out.println(throwable.getMessage());
-
-                return new ByteArrayInputStream("fallback".getBytes());
+                FallbackResponse fallbackResponse = new FallbackResponse();
+                fallbackResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+                ObjectMapper objectMapper = new ObjectMapper();
+                String content = objectMapper.writeValueAsString(fallbackResponse);
+                return new ByteArrayInputStream(content.getBytes());
             }
 
             @Override

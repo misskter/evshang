@@ -1,13 +1,12 @@
 package com.evshang;
 
-
-import com.evshang.properties.Oauth2ClientProperties;
 import com.evshang.properties.SecurityProperties;
-import com.evshang.service.UserService;
+import com.evshang.properties.Oauth2ClientProperties;
 import org.apache.commons.lang.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -39,16 +38,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Autowired
-    private UserService userService;
+    private UserDetailsService userService;
 
     @Autowired
     private SecurityProperties securityProperties;
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-
             super.configure(security);
-
     }
 
     @Override

@@ -1,12 +1,15 @@
 package com.evshang.properties;
 
+import lombok.Data;
+
+@Data
 public class Oauth2Properties {
 
 	private Oauth2ClientProperties[] clients = {};
 	
-	public String jwtSigingKey="evshang";
+	private String jwtSigingKey="evshang";
 
-	public String getJwtSigingKey() {
+	/*public String getJwtSigingKey() {
 		return jwtSigingKey;
 	}
 
@@ -20,6 +23,6 @@ public class Oauth2Properties {
 
 	public void setClients(Oauth2ClientProperties[] clients) {
 		this.clients = clients;
-	}
+	}*/
 
 }

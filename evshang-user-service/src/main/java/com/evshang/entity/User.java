@@ -47,9 +47,6 @@ public class User implements Serializable {
 
     private Integer uroleId;
 
-    //private Urole urole;
-
-    //private List<Article> articles=new ArrayList<Article>();
-
+    private Urole urole;
 
 }

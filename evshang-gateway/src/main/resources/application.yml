@@ -9,6 +9,7 @@ spring:
 eureka:
   client:
     serviceUrl:
+        prefer-ip-address: true
         defaultZone: http://localhost:8000/eureka/
 #这个版本的需要手动开启熔断服务
 feign:
@@ -18,14 +19,27 @@ feign:
 
 
 security:
+  basic:
+    enabled: false
   oauth2:
-    client:
-      client-id: evshang
-      client-secret: evshangsecret
     resource:
-      token-info-uri: http://baidu.com
+      token-info-uri: http://localhost:8333/user
+      prefer-token-info: false
+
+exclude:
+  excludeUrls:
+    - /auth/**
 
 
 
 zuul:
-  ignored-patterns: /user/**/**
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  routes:
+    auth:
+      path: /auth/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: evshang-authentication-service
+

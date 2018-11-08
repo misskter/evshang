@@ -1,5 +1,8 @@
 package com.evshang.properties;
 
+import lombok.Data;
+
+@Data
 public class Oauth2ClientProperties {
 
 	private String clientId;
@@ -8,7 +11,7 @@ public class Oauth2ClientProperties {
 	
 	private int accessTokenValiditySeconds=7200;
 
-	public String getClientId() {
+	/*public String getClientId() {
 		return clientId;
 	}
 
@@ -31,9 +34,9 @@ public class Oauth2ClientProperties {
 	public void setAccessTokenValiditySeconds(int accessTokenValiditySeconds) {
 		this.accessTokenValiditySeconds = accessTokenValiditySeconds;
 	}
-	
-	
-	
-	
-	
+	*/
+
+
+
+
 }
