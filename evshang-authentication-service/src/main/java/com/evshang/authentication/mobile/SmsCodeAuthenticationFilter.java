@@ -17,7 +17,7 @@ import org.springframework.util.Assert;
 
 
 /**
- * @author zhailiang
+ * @author mk
  *
  */
 public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessingFilter {

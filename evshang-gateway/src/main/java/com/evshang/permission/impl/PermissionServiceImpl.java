@@ -1,7 +1,6 @@
 package com.evshang.permission.impl;
 
 import com.evshang.entity.User;
-import com.evshang.feign.UserFeign;
 import com.evshang.permission.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -18,13 +17,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Order(Integer.MAX_VALUE)
+@Order(1000)
 @Service("permissionService")
 public class PermissionServiceImpl implements PermissionService {
 
 
-    @Autowired
-    UserFeign userFeign;
+    //@Autowired
+    //UserFeign userFeign;
 
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -35,11 +34,20 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
         Object principal = authentication.getPrincipal();
+
+        Object authorities= authentication.getAuthorities();
+        //Object au
+        Object details = authentication.getDetails();
+
+        Object credentials= authentication.getCredentials();
+
+
         boolean hasPermission = false;
-        if (principal instanceof UserDetails) {
+
+   /*     if (authentication instanceof UserDetails) {
             String username = ((UserDetails) principal).getUsername();
             //System.out.println(username);
-            User user = userFeign.queryUserByUserName(username);
+            //User user = userFeign.queryUserByUserName(username);
             //获取用户的对应的链接 此处可以使用redis缓存用户的链接,
             Set<String> urls = new HashSet<String>();
 
@@ -50,8 +58,8 @@ public class PermissionServiceImpl implements PermissionService {
                 }
             }
         }
-
-       /* String requestUrl = request.getRequestURI();
+*/
+       String requestUrl = request.getRequestURI();
         //log.info("requestUrl:{}",requestUrl);
         List<SimpleGrantedAuthority> grantedAuthorityList = (List<SimpleGrantedAuthority>) authentication.getAuthorities();
 
@@ -60,15 +68,17 @@ public class PermissionServiceImpl implements PermissionService {
             if (CollectionUtils.isEmpty(grantedAuthorityList)){
                 return hasPermission;
             }
-            for (SimpleGrantedAuthority authority:grantedAuthorityList
+
+            return true;
+           /* for (SimpleGrantedAuthority authority:grantedAuthorityList
                     ) {
                 if (antPathMatcher.match(authority.getAuthority(),requestUrl)){
                     hasPermission = true;
                     break;
                 }
-            }
+            }*/
         }
-*/
+
 
 
 

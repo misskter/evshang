@@ -6,7 +6,7 @@ package com.evshang.properties;
 import lombok.Data;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 

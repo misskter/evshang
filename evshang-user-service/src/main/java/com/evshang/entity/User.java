@@ -3,14 +3,19 @@ package com.evshang.entity;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
+@Entity
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @Id
+    @GeneratedValue
     private Integer id;
 
     private String nickname;
@@ -19,7 +24,7 @@ public class User implements Serializable {
 
     private String password;
 
-    private String headPortrait;
+/*    private String headPortrait;
 
     //盐值，登录验证
     private String salt;
@@ -45,8 +50,9 @@ public class User implements Serializable {
     //表明注册是哪个平台
     private String channel;
 
-    private Integer uroleId;
-
+    private Integer uroleId;*/
+    //
+    @ManyToOne
     private Urole urole;
 
 }

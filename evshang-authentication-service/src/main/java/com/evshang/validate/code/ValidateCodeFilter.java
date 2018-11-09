@@ -27,7 +27,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 @Component("validateCodeFilter")

@@ -1,4 +1,4 @@
-package com.evshang.hystrix;
+/*package com.evshang.hystrix;
 
 import com.evshang.entity.User;
 import com.evshang.feign.UserFeign;
@@ -13,4 +13,4 @@ public class UserFeignHystrix implements UserFeign {
         user.setUsername(username);
         return user;
     }
-}
+}*/

@@ -3,15 +3,22 @@ package com.evshang.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.UUID;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.*;
+
 
 @Component
 public class EvshangZuulFilter extends ZuulFilter {
+
+    private static final Logger LOG = LoggerFactory.getLogger(EvshangZuulFilter.class);
 
 
     @Override
@@ -31,14 +38,10 @@ public class EvshangZuulFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext context = RequestContext.getCurrentContext();
-        HttpServletRequest request = context.getRequest();
-        HttpServletResponse servletResponse = context.getResponse();
-        String header = request.getHeader("access-token");
-        if(StringUtils.isNotBlank(header)){
-
-        }
-        servletResponse.addHeader("X-Foo", UUID.randomUUID().toString());
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LOG.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
         return null;
     }
 }

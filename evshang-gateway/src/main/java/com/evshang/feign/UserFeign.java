@@ -1,3 +1,4 @@
+/*
 package com.evshang.feign;
 
 
@@ -16,3 +17,4 @@ public interface UserFeign {
     User queryUserByUserName(@PathVariable("username") String username);
 
 }
+*/
