@@ -23,6 +23,9 @@ public class EvshangAuthorizeConfigManagerImpl implements AuthorizeConfigManager
 	public void config(
 			ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests) {
 		// TODO Auto-generated method stub
+
+
+
 		for (AuthorizeConfigProvider authorizeConfigProvider : authorizeConfigProviders) {
 			authorizeConfigProvider.config(authorizeRequests);
 		}

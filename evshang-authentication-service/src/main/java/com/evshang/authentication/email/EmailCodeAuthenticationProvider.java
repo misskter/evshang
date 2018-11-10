@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public class EmailCodeAuthenticationProvider implements AuthenticationProvider {

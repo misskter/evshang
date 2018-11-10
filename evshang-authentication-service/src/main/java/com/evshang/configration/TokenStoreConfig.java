@@ -31,33 +31,23 @@ public class TokenStoreConfig {
 	@Configuration
 	@ConditionalOnProperty(prefix="evshang.security.oauth2",name="storyType",havingValue="jwt",matchIfMissing=true)
 	public static class JwtTokenConfig {
-		
+
 		@Autowired
 		private SecurityProperties securityProperties;
-		
+
 		@Bean
 		public TokenStore jwtTokenStore() {
 			return new JwtTokenStore(jwtAccessTokenConverter());
 		}
-		
+
 		@Bean
 		public JwtAccessTokenConverter jwtAccessTokenConverter() {
-			JwtAccessTokenConverter jwtAccessTokenConverter=new JwtAccessTokenConverter();
+			JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
 			jwtAccessTokenConverter.setSigningKey(securityProperties.getOauth2().getJwtSigingKey());
 			return jwtAccessTokenConverter;
 		}
-/*
-		@Bean
-		@ConditionalOnMissingBean(name="jwtTokenEnhancer")
-		public TokenEnhancer jwtTokenEnhancer() {
-			return new EvshangJwtTokenEnhancer();
-		}*/
 
-		
+
 	}
-
-
-
-	
 	
 }

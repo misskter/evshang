@@ -1,10 +1,12 @@
 server:
-  port: 8883
+  port: 8885
 spring:
   application:
     name: evshang-gateway
   profiles:
     active: dev
+  #zipkin:
+
 # 标识该服务为注册中心
 eureka:
   client:
@@ -23,7 +25,7 @@ security:
     enabled: false
   oauth2:
     resource:
-      token-info-uri: http://localhost:8333/user
+      user-info-uri: http://localhost:8010/user
       prefer-token-info: false
 
 exclude:
@@ -31,6 +33,10 @@ exclude:
     - /auth/**
 
 
+
+management:
+  security:
+    enabled: false
 
 zuul:
   host:
@@ -40,6 +46,5 @@ zuul:
     auth:
       path: /auth/**
       strip-prefix: true
-      sensitiveHeaders:
       serviceId: evshang-authentication-service
-
+      sensitiveHeaders: Cookie,Set-Cookie,Authorization

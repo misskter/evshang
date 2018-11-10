@@ -10,7 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public class EmailCodeAuthenticationToken extends AbstractAuthenticationToken {

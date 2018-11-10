@@ -19,6 +19,6 @@ public class EvshangOAuth2AccessDeniedHandler extends OAuth2AccessDeniedHandler 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException authException) throws IOException {
         response.setStatus(HttpStatus.FORBIDDEN.value());
-        response.getOutputStream().print("没有权限访问");
+        response.getOutputStream().print("EvshangOAuth2AccessDeniedHandler.class error message");
     }
 }

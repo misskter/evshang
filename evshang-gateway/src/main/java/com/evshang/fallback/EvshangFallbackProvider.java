@@ -49,6 +49,7 @@ public class EvshangFallbackProvider implements FallbackProvider {
                 //System.out.println(throwable.getMessage());
                 FallbackResponse fallbackResponse = new FallbackResponse();
                 fallbackResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+                fallbackResponse.setRespone(throwable.getMessage());
                 ObjectMapper objectMapper = new ObjectMapper();
                 String content = objectMapper.writeValueAsString(fallbackResponse);
                 return new ByteArrayInputStream(content.getBytes());

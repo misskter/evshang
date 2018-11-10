@@ -76,7 +76,7 @@ public class EvshangAuthenticationSuccessHandler extends SavedRequestAwareAuthen
 			throw new UnapprovedClientAuthenticationException("clientId and clientSecret not match");
 		}
 		TokenRequest tokenRequest = new TokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(),
-				"VtomuSecurity");
+				"EvshangSecurity");
 		OAuth2Request oAuth2Request = tokenRequest.createOAuth2Request(clientDetails);
 		OAuth2Authentication oAuth2Authentication = new OAuth2Authentication(oAuth2Request, authentication);
 		OAuth2AccessToken oAuth2AccessToken=authorizationServerTokenServices.createAccessToken(oAuth2Authentication);

@@ -16,12 +16,11 @@ spring:
 
 
 
-
 evshang:
   security:
-    oathu2:
+    oauth2:
       clients[0]:
         clientId: evshang
         client-secret: evshangsecret
-
+      storyType: jwt
 

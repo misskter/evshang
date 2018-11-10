@@ -6,7 +6,7 @@ package com.evshang.validate.code;
 import org.springframework.web.context.request.ServletWebRequest;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public interface ValidateCodeGenerator {

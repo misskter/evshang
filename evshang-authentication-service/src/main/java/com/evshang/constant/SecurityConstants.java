@@ -20,7 +20,7 @@ public interface SecurityConstants {
 	/**
 	 * 忽略文章的验证地址
 	 */
-	public static final String DEFAULT_IGNORE_ARTICLE="/article/articleList/*";
+
 	/**
 	 * 默认的用户名密码登录请求处理url
 	 */
@@ -45,12 +45,7 @@ public interface SecurityConstants {
 	 * 默认的注册处理地址和图片验证码
 	 */
 	public static final String DEFAULT_REGISTER_PROCESSING_URL_FORM = "/registerCheck/form";
-	/**
-	 * 默认登录页面
-	 * 
-	 * @see SecurityController
-	 */
-	public static final String DEFAULT_INDEX_PAGE = "/index";
+
 	/**
 	 * 验证图片验证码时，http请求中默认的携带图片验证码信息的参数的名称
 	 */

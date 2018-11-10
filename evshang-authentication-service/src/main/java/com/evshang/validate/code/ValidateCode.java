@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public class ValidateCode implements Serializable{

@@ -7,7 +7,7 @@ package com.evshang.validate.code;
 import com.evshang.constant.SecurityConstants;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public enum ValidateCodeType {
