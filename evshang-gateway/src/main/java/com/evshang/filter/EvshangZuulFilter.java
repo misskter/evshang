@@ -5,14 +5,12 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.annotation.Order;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.security.core.context.SecurityContextHolder;
 
-
-import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.*;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.SEND_ERROR_FILTER_ORDER;
 
 
 @Component
@@ -40,8 +38,10 @@ public class EvshangZuulFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        LOG.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
+        System.out.printf("common in here" + EvshangZuulFilter.class.getSimpleName());
+
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       // LOG.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
         return null;
     }
 }

@@ -1,16 +1,14 @@
-/*package com.evshang.hystrix;
+package com.evshang.hystrix;
 
 import com.evshang.entity.User;
-import com.evshang.feign.UserFeign;
+import com.evshang.feign.UserServiceFeign;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserFeignHystrix implements UserFeign {
+public class UserFeignHystrix implements UserServiceFeign {
 
     @Override
-    public User queryUserByUserName(String username) {
-        User user = new User();
-        user.setUsername(username);
-        return user;
+    public User queryUserByUserName(String username) throws RuntimeException{
+        throw new RuntimeException("service not connection");
     }
-}*/
+}
