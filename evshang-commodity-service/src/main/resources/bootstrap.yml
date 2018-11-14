@@ -8,7 +8,7 @@ spring:
       profile: dev
       label: master
   application:
-    name: evshang-user-service
+    name: evshang-commodity-service
 server:
   port: 8888
 eureka:

@@ -1,5 +1,7 @@
 evshang是一个spring cloud + vue的项目
-> 主要使用技术spring cloud 
+# 使用的技术
+
+> 主要使用技术spring cloud组件,spring security做安全框架集成在网关模块(此处参考网上的安全代码),redis缓存,mysql,vue做数据展示,持久层框架暂时用jpa,zipkin做服务链路监控
 
 
 > 微服务总是会和maven多模块混在一起理解，这是错误的概念，maven多模块适合项目代码的组装，如果是独自维护自己的服务是可以使用的。微服务则是远程调用的概念。

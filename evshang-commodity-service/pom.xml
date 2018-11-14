@@ -26,11 +26,15 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-
-
-
-
-
+        <!--服务调用深度监控-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
 
 
         <dependency>
