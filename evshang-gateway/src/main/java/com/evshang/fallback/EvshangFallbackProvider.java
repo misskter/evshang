@@ -57,17 +57,17 @@ public class EvshangFallbackProvider implements FallbackProvider {
 
             @Override
             public HttpStatus getStatusCode() throws IOException {
-                return HttpStatus.OK;
+                return HttpStatus.INTERNAL_SERVER_ERROR;
             }
 
             @Override
             public int getRawStatusCode() throws IOException {
-                return HttpStatus.OK.value();
+                return HttpStatus.INTERNAL_SERVER_ERROR.value();
             }
 
             @Override
             public String getStatusText() throws IOException {
-                return HttpStatus.OK.getReasonPhrase();
+                return HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase();
             }
 
             @Override

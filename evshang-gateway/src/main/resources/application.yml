@@ -7,13 +7,18 @@ spring:
     active: dev
   redis:
     password: 123456
-  #zipkin:
+  zipkin:
+    base-url: http://localhost:9998
+
+
 # 标识该服务为注册中心
 eureka:
   client:
     serviceUrl:
         prefer-ip-address: true
         defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
 #这个版本的需要手动开启熔断服务
 feign:
   hystrix:
@@ -51,3 +56,20 @@ zuul:
     user:
       path: /api/user/**
       service-id: evshang-user-service
+
+
+#排除的url,包括服务
+exclude:
+  exclude-urls:
+    - /code/image
+    - /loginCheck/form
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

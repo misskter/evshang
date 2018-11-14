@@ -1,81 +1,62 @@
 package com.evshang.oauth2.permission.impl;
 
 import com.evshang.oauth2.permission.PermissionService;
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
-@Order(1000)
+@Order(Integer.MAX_VALUE)
 @Service("permissionService")
 public class PermissionServiceImpl implements PermissionService {
 
-
-    //@Autowired
-    //UserFeign userFeign;
-
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
-    private HashMap<String,Set<String>> urlMap = new HashMap<>();
-
-
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
-        Object principal = authentication.getPrincipal();
-
         Object authorities= authentication.getAuthorities();
-        //Object au
-        Object details = authentication.getDetails();
-
-        Object credentials= authentication.getCredentials();
-
-
-        boolean hasPermission = true;
-
-       /* if (authentication instanceof UserDetails) {
-            String username = ((UserDetails) principal).getUsername();
-            //System.out.println(username);
-            //User user = userFeign.queryUserByUserName(username);
-            //获取用户的对应的链接 此处可以使用redis缓存用户的链接,
-            Set<String> urls = new HashSet<String>();
-
-            for (String url : urls) {
-                if (antPathMatcher.match(url, request.getRequestURI())) {
-                    hasPermission = true;
-                    break;
-                }
+        boolean hasPermission = false;
+        Set<String> urls = new HashSet<>();
+        Collection<GrantedAuthority> urolsNames = (Collection<GrantedAuthority>) authorities;
+        for (GrantedAuthority grantedAuthority:urolsNames) {
+           String uroleName = grantedAuthority.getAuthority();
+            urls = redisTemplate.opsForSet().members(uroleName);
+           if(CollectionUtils.isEmpty(urls)){
+               //调用用户服务提供的角色和资源的接口
+               String url1 = "/user";
+               String url2 = "/list";
+               Set<String> set = new HashSet<>();
+               set.add(url1);
+               set.add(url2);
+               String [] u = set.toArray(new String[set.size()]);
+               redisTemplate.opsForSet().add(uroleName,u);
+               urls.addAll(set);
+           }
+        }
+        for (String url : urls) {
+            if (antPathMatcher.match(url, request.getRequestURI())) {
+                hasPermission = true;
+                break;
             }
-        }*/
-      /* String requestUrl = request.getRequestURI();
-        //log.info("requestUrl:{}",requestUrl);
-        List<SimpleGrantedAuthority> grantedAuthorityList = (List<SimpleGrantedAuthority>) authentication.getAuthorities();
-
-
-        if (principal != null){
-            if (CollectionUtils.isEmpty(grantedAuthorityList)){
-                return hasPermission;
-            }
-
-            return true;
-           *//* for (SimpleGrantedAuthority authority:grantedAuthorityList
-                    ) {
-                if (antPathMatcher.match(authority.getAuthority(),requestUrl)){
-                    hasPermission = true;
-                    break;
-                }
-            }*//*
-        }*/
-
-
-
-
-
+        }
         return hasPermission;
     }
+
+
+
+
+
 }
 

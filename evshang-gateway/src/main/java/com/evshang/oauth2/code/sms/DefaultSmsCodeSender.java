@@ -4,7 +4,7 @@
 package com.evshang.oauth2.code.sms;
 
 /**
- * @author zhailiang
+ * @author
  *
  */
 public class DefaultSmsCodeSender implements SmsCodeSender {
