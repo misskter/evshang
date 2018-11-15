@@ -1,18 +1,13 @@
 package com.evshang.entity;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.io.Serializable;
 
 @Data
-public class User  {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -8671402532853504476L;
 
     private Urole urole;
 

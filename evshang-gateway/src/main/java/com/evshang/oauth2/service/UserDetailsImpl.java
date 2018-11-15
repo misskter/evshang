@@ -1,29 +1,32 @@
 package com.evshang.oauth2.service;
 
 import com.evshang.entity.User;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Data
 @Component
-public class UserDetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails,Serializable {
+
+
+    private static final long serialVersionUID = -6855639189767792750L;
 
     private User user;
 
-    private PasswordEncoder passwordEncoder;
+
 
 
     public UserDetailsImpl(){}
 
-    public UserDetailsImpl(PasswordEncoder passwordEncoder,User user){
-        this.passwordEncoder = passwordEncoder;
+    public UserDetailsImpl(User user){
         this.user = user;
     }
 
@@ -39,7 +42,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword()!=null? passwordEncoder.encode(user.getPassword()):user.getPassword();
+        return user.getPassword();
     }
 
     @Override

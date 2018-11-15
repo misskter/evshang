@@ -5,6 +5,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.io.Serializable;
 
 
 /**
@@ -16,9 +19,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Configuration
 @EnableConfigurationProperties(SecurityProperties.class)
-public class PasswordEncoderConfig {
+public class PasswordEncoderConfig implements Serializable {
+
+	private static final long serialVersionUID = -4757222135626058608L;
+
 	@Bean
-	protected BCryptPasswordEncoder passwordEncoder() {
+	protected PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 }

@@ -1,3 +1,4 @@
+/*
 package com.evshang.configuration;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -115,3 +116,4 @@ public class RedisConfiguration<K, V> extends CachingConfigurerSupport {
 
 
 }
+*/

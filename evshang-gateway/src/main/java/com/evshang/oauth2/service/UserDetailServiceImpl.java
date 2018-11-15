@@ -3,6 +3,7 @@ package com.evshang.oauth2.service;
 import com.evshang.entity.User;
 import com.evshang.feign.UserServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,6 +20,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userServiceFeign.queryUserByUserName(username);
@@ -26,8 +29,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
             //int uroleId=user.getUroleId();
             //new org.springframework.security.core.userdetails.User(username, password,AuthorityUtils.commaSeparatedStringToAuthorityList(user.getUrole().getUroleName()));
             //String password = passwordEncoder.encode(user.getPassword());
-            //passwordEncoder.encode(user.getPassword());
-            return new UserDetailsImpl(passwordEncoder,user);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            return new UserDetailsImpl(user);
         } else {
             throw new UsernameNotFoundException("auth  failure");
         }
