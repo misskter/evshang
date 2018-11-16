@@ -1,6 +1,6 @@
 package com.evshang.hystrix;
 
-import com.evshang.entity.User;
+import com.evshang.model.User;
 import com.evshang.feign.UserServiceFeign;
 import org.springframework.stereotype.Component;
 

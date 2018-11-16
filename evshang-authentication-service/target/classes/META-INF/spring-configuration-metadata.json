@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.evshang.properties.SecurityProperties",
+      "name": "evshang.security",
+      "type": "com.evshang.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.evshang.properties.SecurityProperties",
+      "name": "evshang.security.code",
+      "type": "com.evshang.properties.ValidateCodeProperties"
+    },
+    {
+      "sourceType": "com.evshang.properties.SecurityProperties",
+      "name": "evshang.security.oauth2",
+      "type": "com.evshang.properties.Oauth2Properties"
+    },
+    {
+      "sourceType": "com.evshang.properties.SecurityProperties",
+      "name": "evshang.security.social",
+      "type": "com.evshang.properties.SocialProperties"
+    }
+  ]
+}

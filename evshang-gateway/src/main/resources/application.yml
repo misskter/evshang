@@ -24,25 +24,16 @@ feign:
   hystrix:
     enabled: true
 
-evshang:
-  security:
-    oauth2:
-      clients[0]:
-        clientId: evshang
-        client-secret: evshangsecret
-      storyType: redis
 
-# I don't think this configuration is recommended,Because this configuration is used,
-#the address of the authentication server will be fixed and the cluster will not be able to be used, so this is very dangerous in the production environment.
-#So I put the certification on the gateway
-#security:
-  #basic:
-    #enabled: false
-  #oauth2:
-    #resource:
-      #user-info-uri: http://localhost:8010/user
-      #prefer-token-info: false
-
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      loadBalanced: true
+      user-info-uri: http://evshang-authentication-service/user
+      prefer-token-info: false
+      service-id: evshang-gateway
 
 management:
   security:
@@ -56,15 +47,18 @@ zuul:
     user:
       path: /api/user/**
       service-id: evshang-user-service
-
-
+    auth:
+      path: /auth/**
+      sensitiveHeaders:
+      service-id: evshang-authentication-service
+  add-proxy-headers: true
+  ignored-services: '*'
 #排除的url,包括服务
 exclude:
   exclude-urls:
+    - /auth/**
     - /code/image
     - /loginCheck/form
-
-
 
 hystrix:
   command:

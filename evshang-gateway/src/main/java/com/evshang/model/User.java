@@ -1,4 +1,4 @@
-package com.evshang.entity;
+package com.evshang.model;
 
 import lombok.Data;
 

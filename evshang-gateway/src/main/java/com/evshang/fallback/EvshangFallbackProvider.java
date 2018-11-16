@@ -1,6 +1,6 @@
 package com.evshang.fallback;
 
-import com.evshang.response.FallbackResponse;
+import com.evshang.model.FallbackResponse;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.http.HttpHeaders;
